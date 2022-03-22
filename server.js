@@ -20,7 +20,7 @@ const peerServer = ExpressPeerServer(server, {
 app.use("/peerjs", peerServer);
 
 app.get("/", (req, res) => {
-  res.redirect(`/${generate(10)}`);
+  res.redirect(`/${uuidv4()}`);
 });
 
 app.get("/:room", (req, res) => {
@@ -37,6 +37,4 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(process.env.PORT || 3030, () => {
-  console.log("App is active!");
-});
+server.listen(process.env.PORT || 3030);
