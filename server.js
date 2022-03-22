@@ -20,7 +20,7 @@ const peerServer = ExpressPeerServer(server, {
 app.use("/peerjs", peerServer);
 
 app.get("/", (req, res) => {
-  res.redirect(`/${uuidv4()}`);
+  res.redirect(`/${generate(10)}`);
 });
 
 app.get("/:room", (req, res) => {
